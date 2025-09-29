@@ -18,11 +18,6 @@ private:
 	void update();
 	void render();
 
-	//old
-	/*private:
-		CCore();
-		~CCore();*/
-	//new
 public:
 	HWND GetMainHwnd() { return m_hWnd; }
 };

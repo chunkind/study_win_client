@@ -1,8 +1,6 @@
 #include "pch.h"
 #include "CCore.h"
-//new
 #include "CTimeMgr.h"
-
 #include "CObject.h"
 
 CObject g_obj;
@@ -31,8 +29,6 @@ int CCore::init(HWND _hWnd, POINT _ptResolution)
 
 	m_hDC = GetDC(m_hWnd);
 
-	//new
-	// Manager ÃÊ±âÈ­
 	CTimeMgr::GetInst()->init();
 
 	g_obj.SetPos(Vec2((float)(m_ptResolution.x / 2), (float)(m_ptResolution.y / 2)));
@@ -43,7 +39,6 @@ int CCore::init(HWND _hWnd, POINT _ptResolution)
 
 void CCore::progress()
 {
-	//new
 	CTimeMgr::GetInst()->update();
 
 	update();
