@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "CCore.h"
 #include "CTimeMgr.h"
+#include "CKeyMgr.h"
 #include "CObject.h"
 
 CObject g_obj;
@@ -41,6 +42,7 @@ int CCore::init(HWND _hWnd, POINT _ptResolution)
 	DeleteObject(hOldBit);
 
 	CTimeMgr::GetInst()->init();
+	CKeyMgr::GetInst()->init();
 
 	g_obj.SetPos(Vec2((float)(m_ptResolution.x / 2), (float)(m_ptResolution.y / 2)));
 	g_obj.SetScale(Vec2(100, 100));
@@ -51,6 +53,7 @@ int CCore::init(HWND _hWnd, POINT _ptResolution)
 void CCore::progress()
 {
 	CTimeMgr::GetInst()->update();
+	CKeyMgr::GetInst()->update();
 
 	update();
 	render();
@@ -60,12 +63,12 @@ void CCore::update()
 {
 	Vec2 vPos = g_obj.GetPos();
 
-	if (GetAsyncKeyState(VK_LEFT) & 0x8000)
+	if (CKeyMgr::GetInst()->GetKeyState(KEY::LEFT) == KEY_STATE::HOLD)
 	{
 		vPos.x -= 100.f * fDT;
 	}
 
-	if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
+	if (CKeyMgr::GetInst()->GetKeyState(KEY::RIGHT) == KEY_STATE::HOLD)
 	{
 		vPos.x += 100.f * fDT;
 	}

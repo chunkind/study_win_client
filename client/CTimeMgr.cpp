@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "CTimeMgr.h"
 #include "CCore.h"
-#include <tchar.h>
 
 CTimeMgr::CTimeMgr()
 	: m_llCurCount{}
@@ -10,6 +9,7 @@ CTimeMgr::CTimeMgr()
 	, m_dDT(0.)
 	, m_dAcc(0.)
 	, m_iCallCount(0)
+	, m_iFPS(0.)
 {
 
 }
