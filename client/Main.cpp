@@ -1,5 +1,7 @@
-﻿#include "framework.h"
+﻿#include "pch.h"
+#include "framework.h"
 #include "client.h"
+#include "CCore.h"
 
 HINSTANCE hInst;
 HWND g_hWnd;
@@ -7,9 +9,6 @@ HWND g_hWnd;
 ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
-
-//new
-int count = 0;
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     _In_opt_ HINSTANCE hPrevInstance,
@@ -24,28 +23,28 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         return FALSE;
     }
 
+    if (FAILED(CCore::GetInst()->init(g_hWnd, POINT{ 1280, 768 })))
+    {
+        MessageBox(nullptr, L"Core 객체 초기화 실패", L"ERORR", MB_OK);
+    }
+
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_CLIENT));
 
     MSG msg;
 
-    //new
-    // 타이머를 이용해서 자동 그려지기 :: 30프레임
-    SetTimer(g_hWnd, 1234, 1000 / 30, nullptr);
-
-    while (GetMessage(&msg, nullptr, 0, 0))
+    while (true)
     {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
         {
+            if (WM_QUIT == msg.message)
+                break;
+
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }
-
-        //new
-        // 타이머 삭제
-        count++;
-        if (count > 1000)
+        else
         {
-            KillTimer(g_hWnd, 1234);
+            CCore::GetInst()->progress();
         }
     }
 
@@ -54,29 +53,43 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 ATOM MyRegisterClass(HINSTANCE hInstance)
 {
-    ...
+    WNDCLASSEXW wcex;
+
+    wcex.cbSize = sizeof(WNDCLASSEX);
+
+    wcex.style = CS_HREDRAW | CS_VREDRAW;
+    wcex.lpfnWndProc = WndProc;
+    wcex.cbClsExtra = 0;
+    wcex.cbWndExtra = 0;
+    wcex.hInstance = hInstance;
+    wcex.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_CLIENT));
+    wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);
+    wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
+    wcex.lpszMenuName = MAKEINTRESOURCEW(IDC_CLIENT);
+    wcex.lpszClassName = L"WinApi";
+    wcex.hIconSm = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
+
+    return RegisterClassExW(&wcex);
 }
 
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
-    ...
+    hInst = hInstance;
+
+    g_hWnd = CreateWindowW(L"WinApi", L"Client", WS_OVERLAPPEDWINDOW,
+        CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+
+    if (!g_hWnd)
+
+    {
+        return FALSE;
+    }
+
+    ShowWindow(g_hWnd, nCmdShow);
+    UpdateWindow(g_hWnd);
+
+    return TRUE;
 }
-
-#include <vector>
-using std::vector;
-
-struct tObjInfo
-{
-    POINT g_ptObjPos;
-    POINT g_ptObjScale;
-};
-
-vector<tObjInfo> g_vecInfo;
-
-POINT g_ptLT;
-POINT g_ptRB;
-
-bool bLbtnDown = false;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -84,91 +97,33 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     {
     case WM_COMMAND:
     {
-        ...
+        int wmId = LOWORD(wParam);
+        switch (wmId)
+        {
+        case IDM_EXIT:
+            DestroyWindow(hWnd);
+            break;
+        default:
+            return DefWindowProc(hWnd, message, wParam, lParam);
+        }
     }
     break;
     case WM_PAINT:
     {
-        ...
+        PAINTSTRUCT ps;
+        HDC hdc = BeginPaint(hWnd, &ps);
+
+        EndPaint(hWnd, &ps);
     }
     break;
     case WM_KEYDOWN:
-    {
-        switch (wParam)
-        {
-        case VK_UP:
-            //old
-            /*for (size_t i = 0; i < g_vecInfo.size(); ++i)
-            {
-                g_vecInfo[i].g_ptObjPos.y -= 10;
-            }*/
-            break;
-        case VK_DOWN:
-            //old
-            /*for (size_t i = 0; i < g_vecInfo.size(); ++i)
-            {
-                g_vecInfo[i].g_ptObjPos.y += 10;
-            }*/
-            break;
-        case VK_LEFT:
-            //old
-            /*for (size_t i = 0; i < g_vecInfo.size(); ++i)
-            {
-                g_vecInfo[i].g_ptObjPos.x -= 10;
-            }*/
-            break;
-        case VK_RIGHT:
-            //old
-            /*for (size_t i = 0; i < g_vecInfo.size(); ++i)
-            {
-                g_vecInfo[i].g_ptObjPos.x += 10;
-            }*/
-            break;
-        }
-        //old
-        /*InvalidateRect(hWnd, nullptr, true);*/
-    }
-    break;
+        break;
     case WM_LBUTTONDOWN:
-    {
-        g_ptLT.x = LOWORD(lParam);
-        g_ptLT.y = HIWORD(lParam);
-        bLbtnDown = true;
-    }
-    break;
+        break;
     case WM_MOUSEMOVE:
-    {
-        g_ptRB.x = LOWORD(lParam);
-        g_ptRB.y = HIWORD(lParam);
-        //old
-        //InvalidateRect(hWnd, nullptr, true);
-    }
-    break;
+        break;
     case WM_LBUTTONUP:
-    {
-        tObjInfo info = {};
-        info.g_ptObjPos.x = (g_ptLT.x + g_ptRB.x) / 2;
-        info.g_ptObjPos.y = (g_ptLT.y + g_ptRB.y) / 2;
-        info.g_ptObjScale.x = abs(g_ptLT.x - g_ptRB.x);
-        info.g_ptObjScale.y = abs(g_ptLT.y - g_ptRB.y);
-
-        g_vecInfo.push_back(info);
-
-        bLbtnDown = false;
-        //old
-        //InvalidateRect(hWnd, nullptr, true);
-    }
-    break;
-    //new
-    case WM_TIMER:
-    {
-        wchar_t szBuff[50] = {};
-        swprintf_s(szBuff, L"10초 동안 카운트 : %d", count);
-        SetWindowText(hWnd, szBuff);
-        InvalidateRect(hWnd, nullptr, true);
-    }
-    break;
-
+        break;
     case WM_DESTROY:
         PostQuitMessage(0);
         break;
