@@ -41,6 +41,9 @@
     <Filter Include="Engine\03. Manager\SceneMgr">
       <UniqueIdentifier>{7df8d432-d314-4521-b416-26167a34e395}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04. Object\Monster">
+      <UniqueIdentifier>{befb5eee-3767-4629-a735-730c6ac74fc3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client.h">
@@ -86,6 +89,9 @@
     <ClInclude Include="CSceneMgr.h">
       <Filter>Engine\03. Manager\SceneMgr</Filter>
     </ClInclude>
+    <ClInclude Include="CMonster.h">
+      <Filter>Engine\04. Object\Monster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="client.rc">
@@ -125,6 +131,9 @@
     </ClCompile>
     <ClCompile Include="CSceneMgr.cpp">
       <Filter>Engine\03. Manager\SceneMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CMonster.cpp">
+      <Filter>Engine\04. Object\Monster</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
