@@ -26,3 +26,15 @@ void CSceneMgr::init()
 
 	m_pCurScene = m_arrScene[(UINT)SCENE_TYPE::START];
 }
+
+//new
+void CSceneMgr::update()
+{
+	m_pCurScene->update();
+}
+
+//new
+void CSceneMgr::render(HDC _dc)
+{
+	m_pCurScene->render(_dc);
+}
