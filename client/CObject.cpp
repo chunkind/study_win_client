@@ -15,11 +15,6 @@ CObject::~CObject()
 
 }
 
-void CObject::update()
-{
-
-}
-
 void CObject::render(HDC _dc)
 {
 	Rectangle(_dc
