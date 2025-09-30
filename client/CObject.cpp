@@ -21,7 +21,7 @@ void CObject::update()
 	{
 		m_vPos.y -= 200.f * fDT;
 	}
-	if (CKeyMgr::GetInst()->GetKeyState(KEY::D) == KEY_STATE::HOLD)
+	if (CKeyMgr::GetInst()->GetKeyState(KEY::S) == KEY_STATE::HOLD)
 	{
 		m_vPos.y += 200.f * fDT;
 	}
