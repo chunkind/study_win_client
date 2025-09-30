@@ -29,21 +29,33 @@
     <Filter Include="Engine\03. Manager\KeyMgr">
       <UniqueIdentifier>{98abb5e6-3403-4d1f-bff2-d235259fcda4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04. Object\Player">
+      <UniqueIdentifier>{26039032-1303-444e-b9f5-51f7cb9513f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\05. Scene">
+      <UniqueIdentifier>{977b5b7f-b8de-40af-b129-32acae17be30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\05. Scene\Scene_Start">
+      <UniqueIdentifier>{4879f391-19e7-4624-b5e3-41629e278aab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03. Manager\SceneMgr">
+      <UniqueIdentifier>{7df8d432-d314-4521-b416-26167a34e395}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="client.h">
+    <ClInclude Include="Client.h">
       <Filter>Default</Filter>
     </ClInclude>
-    <ClInclude Include="framework.h">
+    <ClInclude Include="Framework.h">
       <Filter>Default</Filter>
     </ClInclude>
     <ClInclude Include="Resource.h">
       <Filter>Default</Filter>
     </ClInclude>
-    <ClInclude Include="targetver.h">
+    <ClInclude Include="Targetver.h">
       <Filter>Default</Filter>
     </ClInclude>
-    <ClInclude Include="pch.h" />
+    <ClInclude Include="Pch.h" />
     <ClInclude Include="Define.h">
       <Filter>Engine\01. Header</Filter>
     </ClInclude>
@@ -61,6 +73,18 @@
     </ClInclude>
     <ClInclude Include="CKeyMgr.h">
       <Filter>Engine\03. Manager\KeyMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayer.h">
+      <Filter>Engine\04. Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="CScene.h">
+      <Filter>Engine\05. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CScene_Start.h">
+      <Filter>Engine\05. Scene\Scene_Start</Filter>
+    </ClInclude>
+    <ClInclude Include="CSceneMgr.h">
+      <Filter>Engine\03. Manager\SceneMgr</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +113,18 @@
     </ClCompile>
     <ClCompile Include="CKeyMgr.cpp">
       <Filter>Engine\03. Manager\KeyMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayer.cpp">
+      <Filter>Engine\04. Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="CScene.cpp">
+      <Filter>Engine\05. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CScene_Start.cpp">
+      <Filter>Engine\05. Scene\Scene_Start</Filter>
+    </ClCompile>
+    <ClCompile Include="CSceneMgr.cpp">
+      <Filter>Engine\03. Manager\SceneMgr</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

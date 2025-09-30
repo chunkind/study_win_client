@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "Pch.h"
 #include "CKeyMgr.h"
 
 int g_arrVK[(int)KEY::LAST] = {

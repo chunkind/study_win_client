@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "Pch.h"
 #include "CSceneMgr.h"
 #include "CScene_Start.h"
 

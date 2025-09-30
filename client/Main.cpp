@@ -1,6 +1,6 @@
-﻿#include "pch.h"
-#include "framework.h"
-#include "client.h"
+﻿#include "Pch.h"
+#include "Framework.h"
+#include "Client.h"
 #include "CCore.h"
 
 HINSTANCE hInst;

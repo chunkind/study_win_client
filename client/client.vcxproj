@@ -105,7 +105,7 @@
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Create</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>Pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -121,7 +121,7 @@
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Create</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>Pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -133,23 +133,25 @@
   <ItemGroup>
     <ClInclude Include="CCore.h" />
     <ClInclude Include="CKeyMgr.h" />
-    <ClInclude Include="client.h" />
+    <ClInclude Include="Client.h" />
     <ClInclude Include="CObject.h" />
+    <ClInclude Include="CPlayer.h" />
     <ClInclude Include="CScene.h" />
     <ClInclude Include="CSceneMgr.h" />
     <ClInclude Include="CScene_Start.h" />
     <ClInclude Include="CTimeMgr.h" />
     <ClInclude Include="Define.h" />
-    <ClInclude Include="framework.h" />
-    <ClInclude Include="pch.h" />
+    <ClInclude Include="Framework.h" />
+    <ClInclude Include="Pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Struct.h" />
-    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CCore.cpp" />
     <ClCompile Include="CKeyMgr.cpp" />
     <ClCompile Include="CObject.cpp" />
+    <ClCompile Include="CPlayer.cpp" />
     <ClCompile Include="CScene.cpp" />
     <ClCompile Include="CSceneMgr.cpp" />
     <ClCompile Include="CScene_Start.cpp" />

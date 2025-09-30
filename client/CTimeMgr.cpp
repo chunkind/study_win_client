@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "Pch.h"
 #include "CTimeMgr.h"
 #include "CCore.h"
 
