@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "CObject.h"
-//new
 #include "CKeyMgr.h"
 #include "CTimeMgr.h"
 
@@ -16,7 +15,6 @@ CObject::~CObject()
 
 }
 
-//new
 void CObject::update()
 {
 	if (CKeyMgr::GetInst()->GetKeyState(KEY::W) == KEY_STATE::HOLD)
@@ -37,7 +35,6 @@ void CObject::update()
 	}
 }
 
-//new
 void CObject::render(HDC _dc)
 {
 	Rectangle(_dc

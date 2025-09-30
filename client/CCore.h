@@ -18,9 +18,6 @@ public:
 	void progress();
 
 private:
-	//old
-	/*void update();
-	void render();*/
 
 public:
 	HWND GetMainHwnd() { return m_hWnd; }

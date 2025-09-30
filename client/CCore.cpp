@@ -5,9 +5,6 @@
 #include "CSceneMgr.h"
 #include "CObject.h"
 
-//old
-//CObject g_obj;
-
 CCore::CCore()
 	: m_hWnd(0)
 	, m_ptResolution{}
@@ -47,10 +44,6 @@ int CCore::init(HWND _hWnd, POINT _ptResolution)
 	CKeyMgr::GetInst()->init();
 	CSceneMgr::GetInst()->init();
 
-	//old
-	//g_obj.SetPos(Vec2((float)(m_ptResolution.x / 2), (float)(m_ptResolution.y / 2)));
-	//g_obj.SetScale(Vec2(100, 100));
-
 	return S_OK;
 }
 
@@ -60,48 +53,7 @@ void CCore::progress()
 	CKeyMgr::GetInst()->update();
 	CSceneMgr::GetInst()->update();
 
-	//old
-	//update();
-	//render();
-	//new
-	// 화면 클리어
 	Rectangle(m_memDC, -1, -1, m_ptResolution.x + 1, m_ptResolution.y + 1);
 	CSceneMgr::GetInst()->update();
 	BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y, m_memDC, 0, 0, SRCCOPY);
 }
-
-//old
-//void CCore::update()
-//{
-//	Vec2 vPos = g_obj.GetPos();
-//
-//	if (CKeyMgr::GetInst()->GetKeyState(KEY::LEFT) == KEY_STATE::HOLD)
-//	{
-//		vPos.x -= 100.f * fDT;
-//	}
-//
-//	if (CKeyMgr::GetInst()->GetKeyState(KEY::RIGHT) == KEY_STATE::HOLD)
-//	{
-//		vPos.x += 100.f * fDT;
-//	}
-//
-//	g_obj.SetPos(vPos);
-//}
-
-//old
-//void CCore::render()
-//{
-//	Rectangle(m_memDC, -1, -1, m_ptResolution.x + 1, m_ptResolution.y + 1);
-//
-//	Vec2 vPos = g_obj.GetPos();
-//	Vec2 vScale = g_obj.GetScale();
-//
-//	Rectangle(m_memDC
-//		, int(vPos.x - vScale.x / 2.f)
-//		, int(vPos.y - vScale.y / 2.f)
-//		, int(vPos.x + vScale.x / 2.f)
-//		, int(vPos.y + vScale.y / 2.f));
-//
-//	BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y
-//		, m_memDC, 0, 0, SRCCOPY);
-//}
