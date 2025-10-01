@@ -12,6 +12,7 @@ private:
 
 public:
 	float GetSpeed() { return m_fSpeed; }
+	void SetMoveDistance(float _f) { m_fMaxDistance = _f; }
 	void SetSpeed(float _f) { m_fSpeed = _f; }
 
 	void SetCenterPos(Vec2 _vPos) { m_vCenterPos = _vPos; }
