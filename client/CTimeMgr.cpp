@@ -30,6 +30,11 @@ void CTimeMgr::update()
 	QueryPerformanceCounter(&m_llCurCount);
 	m_dDT = (double)(m_llCurCount.QuadPart - m_llPrevCount.QuadPart) / (double)m_llFrequency.QuadPart;
 	m_llPrevCount = m_llCurCount;
+	
+}
+
+void CTimeMgr::render()
+{
 	++m_iCallCount;
 	m_dAcc += m_dDT;
 
