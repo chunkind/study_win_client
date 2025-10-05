@@ -15,6 +15,7 @@ private:
 
 public:
 	int init(HWND _hWnd, POINT _ptResolution);
+	HDC GetMainDC() { return m_hDC; }
 	void progress();
 
 private:
