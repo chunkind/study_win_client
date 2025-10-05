@@ -4,6 +4,7 @@
 #include "CKeyMgr.h"
 #include "CSceneMgr.h"
 #include "CObject.h"
+#include "CPathMgr.h"
 
 CCore::CCore()
 	: m_hWnd(0)
@@ -40,6 +41,7 @@ int CCore::init(HWND _hWnd, POINT _ptResolution)
 	HBITMAP hOldBit = (HBITMAP)SelectObject(m_memDC, m_hBit);
 	DeleteObject(hOldBit);
 
+	CPathMgr::GetInst()->init();
 	CTimeMgr::GetInst()->init();
 	CKeyMgr::GetInst()->init();
 	CSceneMgr::GetInst()->init();
@@ -57,5 +59,5 @@ void CCore::progress()
 	CSceneMgr::GetInst()->render(m_memDC);
 	BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y, m_memDC, 0, 0, SRCCOPY);
 
-	CTimeMgr::GetInst()->render();
+	//CTimeMgr::GetInst()->render();
 }
