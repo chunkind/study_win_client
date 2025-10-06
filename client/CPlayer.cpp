@@ -16,8 +16,6 @@ CPlayer::CPlayer()
 
 CPlayer::~CPlayer()
 {
-	if (nullptr != m_pTex)
-		delete m_pTex;
 }
 
 void CPlayer::update()
