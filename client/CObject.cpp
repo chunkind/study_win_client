@@ -16,6 +16,12 @@ CObject::~CObject()
 		delete m_pCollider;
 }
 
+void CObject::finalupdate()
+{
+	if (m_pCollider)
+		m_pCollider->finalupdate();
+}
+
 void CObject::render(HDC _dc)
 {
 	Rectangle(_dc
@@ -29,4 +35,5 @@ void CObject::render(HDC _dc)
 void CObject::CreateCollider()
 {
 	m_pCollider = new CCollider;
+	m_pCollider->m_pOwner = this;
 }

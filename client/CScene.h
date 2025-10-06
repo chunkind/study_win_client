@@ -14,6 +14,7 @@ public:
 	const wstring& GetName() { return m_strName; }
 
 	void update();
+	void finalupdate();
 	void render(HDC _dc);
 
 	virtual void Enter() = 0;
