@@ -239,3 +239,4 @@ __pycache__/
 *.sln.iml
 /Output/bin_debug/study_cpp_win_game_framework.exe
 /Unity
+/client/Output/bin_debug/client.exe
