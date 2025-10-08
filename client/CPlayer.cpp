@@ -43,7 +43,7 @@ void CPlayer::update()
 	{
 		vPos.x += 200.f * fDT;
 	}
-	if (KEY_TAP(KEY::SPACE))
+	if (KEY_TAP(KEY::J))
 	{
 		CreateMissile();
 	}
@@ -83,5 +83,5 @@ void CPlayer::CreateMissile()
 	pMissile->SetDir(Vec2(0.f, 1.f));
 
 	CScene* pCurScene = CSceneMgr::GetInst()->GetCurScene();
-	pCurScene->AddObject(pMissile, GROUP_TYPE::DEFAULT);
+	pCurScene->AddObject(pMissile, GROUP_TYPE::MISSILE);
 }

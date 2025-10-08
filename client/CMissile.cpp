@@ -1,6 +1,7 @@
 #include "Pch.h"
 #include "CMissile.h"
 #include "CTimeMgr.h"
+#include "CCollider.h"
 
 CMissile::CMissile()
 	: m_fTheta(PI / 3.f)
@@ -9,6 +10,7 @@ CMissile::CMissile()
 	m_vDir.Normalize();
 
 	CreateCollider();
+	GetCollider()->SetScale(Vec2(20.f, 20.f));
 }
 
 CMissile::~CMissile()
@@ -33,4 +35,6 @@ void CMissile::render(HDC _dc)
 
 	Ellipse(_dc, (int)(vPos.x - vScale.x / 2.f), (int)(vPos.y - vScale.y / 2.f)
 		, (int)(vPos.x + vScale.x / 2.f), (int)(vPos.y + vScale.y / 2.f));
+
+	component_render(_dc);
 }

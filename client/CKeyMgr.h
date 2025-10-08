@@ -35,6 +35,7 @@ enum class KEY
 	C,
 	V,
 	B,
+	J,
 
 	ALT,
 	CTRL,
