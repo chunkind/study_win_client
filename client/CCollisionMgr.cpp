@@ -72,14 +72,26 @@ void CCollisionMgr::CollisionGroupUpdate(GROUP_TYPE _eLeft, GROUP_TYPE _eRight)
 			{
 				if (iter->second)
 				{
-					pLeftCol->OnCollision(pRightCol);
-					pRightCol->OnCollision(pLeftCol);
+					if (vecLeft[i]->IsDead() || vecRight[j]->IsDead())
+					{
+						pLeftCol->OnCollisionExit(pRightCol);
+						pRightCol->OnCollisionExit(pLeftCol);
+						iter->second = false;
+					}
+					else
+					{
+						pLeftCol->OnCollision(pRightCol);
+						pRightCol->OnCollision(pLeftCol);
+					}
 				}
 				else
 				{
-					pLeftCol->OnCollisionEnter(pRightCol);
-					pRightCol->OnCollisionEnter(pLeftCol);
-					iter->second = true;
+					if (!vecLeft[i]->IsDead() && !vecRight[j]->IsDead())
+					{
+						pLeftCol->OnCollisionEnter(pRightCol);
+						pRightCol->OnCollisionEnter(pLeftCol);
+						iter->second = true;
+					}
 				}
 			}
 			else
