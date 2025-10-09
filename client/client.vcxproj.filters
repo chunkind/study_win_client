@@ -74,6 +74,9 @@
     <Filter Include="Engine\03. Manager\EventMgr">
       <UniqueIdentifier>{535e6504-2edf-493d-84ea-2f240d68e0b4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\05. Scene\Scene_Tool">
+      <UniqueIdentifier>{4d98b9c0-6179-4740-9acb-a72006a398f6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client.h">
@@ -155,6 +158,9 @@
     <ClInclude Include="Func.h">
       <Filter>Engine\01. Header</Filter>
     </ClInclude>
+    <ClInclude Include="CScene_Tool.h">
+      <Filter>Engine\05. Scene\Scene_Tool</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="client.rc">
@@ -230,6 +236,9 @@
     </ClCompile>
     <ClCompile Include="Func.cpp">
       <Filter>Engine\01. Header</Filter>
+    </ClCompile>
+    <ClCompile Include="CScene_Tool.cpp">
+      <Filter>Engine\05. Scene\Scene_Tool</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

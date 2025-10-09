@@ -7,6 +7,7 @@
 #include "CTexture.h"
 #include "CPathMgr.h"
 #include "CCollisionMgr.h"
+#include "CKeyMgr.h"
 
 CScene_Start::CScene_Start()
 {
@@ -14,6 +15,11 @@ CScene_Start::CScene_Start()
 
 CScene_Start::~CScene_Start()
 {
+}
+
+void CScene_Start::update()
+{
+
 }
 
 void CScene_Start::Enter()
