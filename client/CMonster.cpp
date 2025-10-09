@@ -36,8 +36,8 @@ void CMonster::update()
 void CMonster::OnCollisionEnter(CCollider* _pOther)
 {
 	CObject* pOtherObj = _pOther->GetObj();
-	if (pOtherObj->GetName() == L"player")
+	/*if (pOtherObj->GetName() == L"Missile_Player")
 	{
-
-	}
+		DeleteObject(this);
+	}*/
 }
