@@ -19,7 +19,12 @@ CScene_Start::~CScene_Start()
 
 void CScene_Start::update()
 {
+	CScene::update();
 
+	if (KEY_TAP(KEY::ENTER))
+	{
+		ChangeScene(SCENE_TYPE::TOOL);
+	}
 }
 
 void CScene_Start::Enter()
