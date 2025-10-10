@@ -40,8 +40,8 @@ public:
 	virtual void update() = 0;
 	virtual void finalupdate() final;
 	virtual void render(HDC _dc);
-
 	void component_render(HDC _Dc);
+	virtual CObject* Clone() = 0;
 
 public:
 	CObject();

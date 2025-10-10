@@ -22,6 +22,8 @@ public:
 public:
 	virtual void OnCollisionEnter(CCollider* _pOther);
 
+	CMissile* Clone() { return new CMissile(*this); }
+
 public:
 	CMissile();
 	~CMissile();

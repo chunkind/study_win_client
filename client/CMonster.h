@@ -23,6 +23,8 @@ public:
 public:
 	virtual void update();
 
+	CMonster* Clone() { return new CMonster(*this); }
+
 public:
 	CMonster();
 	~CMonster();

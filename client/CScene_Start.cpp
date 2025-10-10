@@ -34,7 +34,7 @@ void CScene_Start::Enter()
 	pObj->SetScale(Vec2(100.f, 100.f));
 	AddObject(pObj, GROUP_TYPE::PLAYER);
 
-	CObject* pOtherPlayer = new CPlayer(*(CPlayer*)pObj);
+	CObject* pOtherPlayer = pObj->Clone();
 	pOtherPlayer->SetPos(Vec2(740.f, 384.f));
 	AddObject(pOtherPlayer, GROUP_TYPE::PLAYER);
 
