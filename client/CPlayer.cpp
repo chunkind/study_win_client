@@ -11,18 +11,16 @@
 #include "CAnimator.h"
 
 CPlayer::CPlayer()
-	:m_pTex(nullptr)
 {
-	//m_pTex = CResMgr::GetInst()->LoadTexture(L"PlayerTex", L"texture\\Player.bmp");
-
 	CreateCollider();
 	GetCollider()->SetOffsetPos(Vec2(0.f, 12.f));
 	GetCollider()->SetScale(Vec2(20.f, 40.f));
 
-	m_pTex = CResMgr::GetInst()->LoadTexture(L"PlayerTex", L"texture\\link_0.bmp");
+	CTexture* pTex = CResMgr::GetInst()->LoadTexture(L"PlayerTex", L"texture\\link_0.bmp");
+
 	CreateAnimator();
-	GetAnimator()->CreateAnimation(L"WALK_DOWN", m_pTex, Vec2(0.f, 260.f)
-		, Vec2(60.f, 65.f), Vec2(60.f, 0.f), 1.f, 10);
+	GetAnimator()->CreateAnimation(L"WALK_DOWN", pTex, Vec2(0.f, 260.f), Vec2(60.f, 65.f), Vec2(60.f, 0.f), 1.f, 10);
+	GetAnimator()->Play(L"WALK_DOWN");
 }
 
 CPlayer::~CPlayer()
@@ -59,7 +57,7 @@ void CPlayer::update()
 
 void CPlayer::render(HDC _dc)
 {
-	int iWidth = (int)m_pTex->Width();
+	/*int iWidth = (int)m_pTex->Width();
 	int iHeight = (int)m_pTex->Height();
 
 	Vec2 vPos = GetPos();
@@ -72,7 +70,7 @@ void CPlayer::render(HDC _dc)
 		, 0, 0
 		, iWidth, iHeight
 		, RGB(255, 0, 255)
-	);
+	);*/
 
 	component_render(_dc);
 }
