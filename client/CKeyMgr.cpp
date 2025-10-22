@@ -1,5 +1,6 @@
 #include "Pch.h"
 #include "CKeyMgr.h"
+#include "CCore.h"
 
 int g_arrVK[(int)KEY::LAST] = {
 	VK_LEFT, //LEFT,
@@ -35,6 +36,8 @@ int g_arrVK[(int)KEY::LAST] = {
 	VK_SPACE, //SPACE,
 	VK_RETURN, //ENTER,
 	VK_ESCAPE, //ESC,
+	VK_LBUTTON,
+	VK_RBUTTON,
 
 	//LAST,
 };
@@ -108,4 +111,10 @@ void CKeyMgr::update()
 			}
 		}
 	}
+
+	POINT ptPos = {};
+	::GetCursorPos(&ptPos);
+	::ScreenToClient(CCore::GetInst()->GetMainHwnd(), &ptPos);
+
+	m_vCurMousePos = Vec2((float)ptPos.x, (float)ptPos.y);
 }
