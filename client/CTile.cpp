@@ -1,7 +1,10 @@
 #include "Pch.h"
 #include "CTile.h"
+#include "CTexture.h"
 
 CTile::CTile()
+	: m_pTileTex(nullptr)
+	, m_iIdx(3)
 {
 	SetScale(Vec2(TILE_SIZE, TILE_SIZE));
 }
@@ -18,12 +21,32 @@ void CTile::Update()
 
 void CTile::Render(HDC _dc)
 {
+	if (nullptr == m_pTileTex)
+		return;
+
+	UINT iWidth = m_pTileTex->Width();
+	UINT iHeight = m_pTileTex->Height();
+
+	UINT iMaxCol = iWidth / TILE_SIZE;
+	UINT iMaxRow = iHeight / TILE_SIZE;
+
+	UINT iCurRow = (UINT)m_iIdx / iMaxCol;
+	UINT iCurCol = (UINT)m_iIdx % iMaxCol;
+
+	if (iMaxRow <= iCurRow)
+		assert(nullptr);
+
 	Vec2 vRenderPos = CCamera::GetInst()->GetRenderPos(GetPos());
 	Vec2 vScale = GetScale();
 
-	Rectangle(_dc
+	BitBlt(_dc
 		, int(vRenderPos.x)
 		, int(vRenderPos.y)
-		, int(vRenderPos.x + vScale.x)
-		, int(vRenderPos.y + vScale.y));
+		, int(vScale.x)
+		, int(vScale.y)
+		, m_pTileTex->GetDC()
+		, iCurCol * TILE_SIZE
+		, iCurRow * TILE_SIZE
+		, SRCCOPY
+	);
 }
