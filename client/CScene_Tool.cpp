@@ -6,6 +6,7 @@
 #include "CResMgr.h"
 #include "CSceneMgr.h"
 #include "Resource.h"
+#include "CUI.h"
 
 CScene_Tool::CScene_Tool()
 {
@@ -20,6 +21,12 @@ void CScene_Tool::Enter()
 	CreateTile(5, 5);
 
 	Vec2 vResolution = CCore::GetInst()->GetResolution();
+
+	CUI* pUI = new CUI;
+	pUI->SetScale(Vec2(100.f, 100.f));
+	pUI->SetPos(Vec2(vResolution.x - pUI->GetScale().x, 0.f));
+	AddObject(pUI, GROUP_TYPE::UI);
+
 	CCamera::GetInst()->SetLookAt(vResolution / 2.f);
 }
 

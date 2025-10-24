@@ -186,6 +186,7 @@
     <ClInclude Include="SelectGDI.h" />
     <ClInclude Include="Struct.h" />
     <ClInclude Include="Targetver.h" />
+    <ClInclude Include="CUI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CAnimation.cpp" />
@@ -214,6 +215,7 @@
     <ClCompile Include="Func.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="SelectGDI.cpp" />
+    <ClCompile Include="CUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="client.rc" />
