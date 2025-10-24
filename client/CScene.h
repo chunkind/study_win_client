@@ -9,9 +9,15 @@ public:
 	vector<CObject*>	m_arrObj[(UINT)GROUP_TYPE::END];
 	wstring				m_strName;
 
+	UINT m_iTileX;
+	UINT m_iTileY;
+
 public:
 	void SetName(const wstring& _strName) { m_strName = _strName; }
 	const wstring& GetName() { return m_strName; }
+
+	UINT GetTileX() { return m_iTileX; }
+	UINT GetTileY() { return m_iTileY; }
 
 	virtual void Update();
 	virtual void FinalUpdate();

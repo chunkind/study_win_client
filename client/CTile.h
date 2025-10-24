@@ -16,6 +16,11 @@ public:
 		m_pTileTex = _pTex;
 	}
 
+	void AddImgIdx()
+	{
+		++m_iImgIdx;
+	}
+
 private:
 	virtual void Update();
 	virtual void Render(HDC _dc);
