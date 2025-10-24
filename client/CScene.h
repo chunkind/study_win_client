@@ -30,6 +30,8 @@ public:
 	void DeleteGroup(GROUP_TYPE _eTarget);
 	void DeleteAll();
 
+	void CreateTile(UINT _iXCount, UINT _iYCount);
+
 public:
 	CScene();
 	virtual ~CScene();
