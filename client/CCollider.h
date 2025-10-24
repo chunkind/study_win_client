@@ -27,8 +27,8 @@ public:
 	UINT		GetID() { return m_iID; }
 
 public:
-	void		finalupdate();
-	void		render(HDC _dc);
+	void		FinalUpdate();
+	void		Render(HDC _dc);
 
 public:
 	void		OnCollision(CCollider* _pOther);

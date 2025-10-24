@@ -13,9 +13,9 @@ public:
 	void SetName(const wstring& _strName) { m_strName = _strName; }
 	const wstring& GetName() { return m_strName; }
 
-	virtual void update();
-	virtual void finalupdate();
-	virtual void render(HDC _dc);
+	virtual void Update();
+	virtual void FinalUpdate();
+	virtual void Render(HDC _dc);
 
 	virtual void Enter() = 0;
 	virtual void Exit() = 0;

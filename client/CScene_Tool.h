@@ -7,7 +7,7 @@ class CScene_Tool : public CScene
 private:
 
 public:
-	virtual void update();
+	virtual void Update();
 
 public:
 	virtual void Enter();

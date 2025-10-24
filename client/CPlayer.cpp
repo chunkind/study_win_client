@@ -32,7 +32,7 @@ CPlayer::~CPlayer()
 {
 }
 
-void CPlayer::update()
+void CPlayer::Update()
 {
 	Vec2 vPos = GetPos();
 
@@ -59,10 +59,10 @@ void CPlayer::update()
 
 	SetPos(vPos);
 
-	GetAnimator()->update();
+	GetAnimator()->Update();
 }
 
-void CPlayer::render(HDC _dc)
+void CPlayer::Render(HDC _dc)
 {
 	/*int iWidth = (int)m_pTex->Width();
 	int iHeight = (int)m_pTex->Height();
@@ -79,7 +79,7 @@ void CPlayer::render(HDC _dc)
 		, RGB(255, 0, 255)
 	);*/
 
-	component_render(_dc);
+	ComponentRender(_dc);
 }
 
 

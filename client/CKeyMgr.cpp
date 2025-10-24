@@ -52,7 +52,7 @@ CKeyMgr::~CKeyMgr()
 
 }
 
-void CKeyMgr::init()
+void CKeyMgr::Init()
 {
 	for (int i = 0; i < (int)KEY::LAST; ++i)
 	{
@@ -60,7 +60,7 @@ void CKeyMgr::init()
 	}
 }
 
-void CKeyMgr::update()
+void CKeyMgr::Update()
 {
 	HWND hWnd = GetFocus();
 	if (nullptr != hWnd)

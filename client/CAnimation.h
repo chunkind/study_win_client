@@ -14,13 +14,13 @@ struct tAnimFrm
 class CAnimation
 {
 private:
-	wstring m_strName;
-	CAnimator* m_pAnimator;
-	CTexture* m_pTex;
-	vector<tAnimFrm> m_vecFrm;
-	int m_iCurFrm;
-	float m_fAccTime;
-	bool m_bFinish;
+	wstring				m_strName;
+	CAnimator*			m_pAnimator;
+	CTexture*			m_pTex;
+	vector<tAnimFrm>	m_vecFrm;
+	int					m_iCurFrm;
+	float				m_fAccTime;
+	bool				m_bFinish;
 
 public:
 	const wstring& GetName() { return m_strName; }
@@ -39,8 +39,8 @@ private:
 	void SetName(const wstring& _strName) { m_strName = _strName; }
 	
 public:
-	void update();
-	void render(HDC _dc);
+	void Update();
+	void Render(HDC _dc);
 	void Create(CTexture* _pTex, Vec2 _vLT, Vec2 _vSliceSize, Vec2 _vStep
 		, float _fDuration, UINT _iFrameCount);
 

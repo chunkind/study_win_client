@@ -34,7 +34,7 @@ CCore::~CCore()
 	}
 }
 
-int CCore::init(HWND _hWnd, POINT _ptResolution)
+int CCore::Init(HWND _hWnd, POINT _ptResolution)
 {
 	m_hWnd = _hWnd;
 	m_ptResolution = _ptResolution;
@@ -53,29 +53,29 @@ int CCore::init(HWND _hWnd, POINT _ptResolution)
 
 	CreateBrushPen();
 
-	CPathMgr::GetInst()->init();
-	CTimeMgr::GetInst()->init();
-	CKeyMgr::GetInst()->init();
-	CSceneMgr::GetInst()->init();
+	CPathMgr::GetInst()->Init();
+	CTimeMgr::GetInst()->Init();
+	CKeyMgr::GetInst()->Init();
+	CSceneMgr::GetInst()->Init();
 
 	return S_OK;
 }
 
-void CCore::progress()
+void CCore::Progress()
 {
-	CTimeMgr::GetInst()->update();
-	CKeyMgr::GetInst()->update();
-	CCamera::GetInst()->update();
-	CSceneMgr::GetInst()->update();
-	CCollisionMgr::GetInst()->update();
+	CTimeMgr::GetInst()->Update();
+	CKeyMgr::GetInst()->Update();
+	CCamera::GetInst()->Update();
+	CSceneMgr::GetInst()->Update();
+	CCollisionMgr::GetInst()->Update();
 
 	Rectangle(m_memDC, -1, -1, m_ptResolution.x + 1, m_ptResolution.y + 1);
-	CSceneMgr::GetInst()->render(m_memDC);
+	CSceneMgr::GetInst()->Render(m_memDC);
 	BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y, m_memDC, 0, 0, SRCCOPY);
 
-	CTimeMgr::GetInst()->render();
+	CTimeMgr::GetInst()->Render();
 
-	CEventMgr::GetInst()->update();
+	CEventMgr::GetInst()->Update();
 }
 
 void CCore::CreateBrushPen()

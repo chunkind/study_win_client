@@ -32,7 +32,7 @@ public:
 	Vec2 GetRealPos(Vec2 _vRenderPos) { return _vRenderPos + m_vDiff; }
 
 public:
-	void update();
+	void Update();
 
 private:
 	void CalDiff();

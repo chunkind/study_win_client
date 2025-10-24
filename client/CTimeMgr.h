@@ -15,9 +15,9 @@ private:
 	UINT			m_iFPS;
 
 public:
-	void init();
-	void update();
-	void render();
+	void Init();
+	void Update();
+	void Render();
 
 public:
 	double GetDT() { return m_dDT; }

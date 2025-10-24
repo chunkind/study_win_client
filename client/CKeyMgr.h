@@ -64,8 +64,8 @@ private:
 	Vec2 m_vCurMousePos;
 
 public:
-	void init();
-	void update();
+	void Init();
+	void Update();
 
 public:
 	KEY_STATE GetKeyState(KEY _eKey) { return m_vecKey[(int)_eKey].eState; }

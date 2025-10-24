@@ -18,9 +18,9 @@ CScene_Start::~CScene_Start()
 {
 }
 
-void CScene_Start::update()
+void CScene_Start::Update()
 {
-	CScene::update();
+	CScene::Update();
 
 	if (KEY_TAP(KEY::ENTER))
 	{

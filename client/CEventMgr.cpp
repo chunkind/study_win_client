@@ -14,7 +14,7 @@ CEventMgr::~CEventMgr()
 
 }
 
-void CEventMgr::update()
+void CEventMgr::Update()
 {
 	for (size_t i = 0; i < m_vecDead.size(); ++i)
 	{

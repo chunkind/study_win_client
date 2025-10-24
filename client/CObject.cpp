@@ -43,13 +43,13 @@ CObject::~CObject()
 		delete m_pAnimator;
 }
 
-void CObject::finalupdate()
+void CObject::FinalUpdate()
 {
 	if (m_pCollider)
-		m_pCollider->finalupdate();
+		m_pCollider->FinalUpdate();
 }
 
-void CObject::render(HDC _dc)
+void CObject::Render(HDC _dc)
 {
 	Vec2 vRenderPos = CCamera::GetInst()->GetRenderPos(m_vPos);
 
@@ -60,19 +60,19 @@ void CObject::render(HDC _dc)
 		, (int)(vRenderPos.y + m_vScale.y / 2.f)
 	);
 
-	component_render(_dc);
+	ComponentRender(_dc);
 }
 
-void CObject::component_render(HDC _dc)
+void CObject::ComponentRender(HDC _dc)
 {
 	if (nullptr != m_pCollider)
 	{
-		m_pCollider->render(_dc);
+		m_pCollider->Render(_dc);
 	}
 
 	if (nullptr != m_pAnimator)
 	{
-		m_pAnimator->render(_dc);
+		m_pAnimator->Render(_dc);
 	}
 }
 

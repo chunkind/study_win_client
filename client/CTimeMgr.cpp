@@ -19,13 +19,13 @@ CTimeMgr::~CTimeMgr()
 
 }
 
-void CTimeMgr::init()
+void CTimeMgr::Init()
 {
 	QueryPerformanceCounter(&m_llPrevCount);
 	QueryPerformanceFrequency(&m_llFrequency);
 }
 
-void CTimeMgr::update()
+void CTimeMgr::Update()
 {
 	QueryPerformanceCounter(&m_llCurCount);
 	m_dDT = (double)(m_llCurCount.QuadPart - m_llPrevCount.QuadPart) / (double)m_llFrequency.QuadPart;
@@ -37,7 +37,7 @@ void CTimeMgr::update()
 #endif
 }
 
-void CTimeMgr::render()
+void CTimeMgr::Render()
 {
 	++m_iCallCount;
 	m_dAcc += m_dDT;

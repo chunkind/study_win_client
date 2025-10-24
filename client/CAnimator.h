@@ -7,10 +7,10 @@ class CTexture;
 class CAnimator
 {
 private:
-	map<wstring, CAnimation*> m_mapAnim;
-	CAnimation* m_pCurAnim;
-	CObject* m_pOwner;
-	bool m_bRepeat;
+	map<wstring, CAnimation*>	m_mapAnim;
+	CAnimation*					m_pCurAnim;
+	CObject*					m_pOwner;
+	bool						m_bRepeat;
 
 public:
 	CObject* GetObj() { return m_pOwner; }
@@ -21,8 +21,8 @@ public:
 
 	void Play(const wstring& _strName, bool _bRepeat);
 
-	void update();
-	void render(HDC _dc);
+	void Update();
+	void Render(HDC _dc);
 
 public:
 	CAnimator();

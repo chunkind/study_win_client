@@ -18,7 +18,7 @@ CMissile::~CMissile()
 
 }
 
-void CMissile::update()
+void CMissile::Update()
 {
 	Vec2 vPos = GetPos();
 
@@ -28,7 +28,7 @@ void CMissile::update()
 	SetPos(vPos);
 }
 
-void CMissile::render(HDC _dc)
+void CMissile::Render(HDC _dc)
 {
 	Vec2 vPos = GetPos();
 	Vec2 vScale = GetScale();
@@ -38,7 +38,7 @@ void CMissile::render(HDC _dc)
 	Ellipse(_dc, (int)(vRenderPos.x - vScale.x / 2.f), (int)(vRenderPos.y - vScale.y / 2.f)
 		, (int)(vRenderPos.x + vScale.x / 2.f), (int)(vRenderPos.y + vScale.y / 2.f));
 
-	component_render(_dc);
+	ComponentRender(_dc);
 }
 
 void CMissile::OnCollisionEnter(CCollider* _pOther)

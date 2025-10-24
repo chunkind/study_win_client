@@ -17,7 +17,7 @@ CScene::~CScene()
 	}
 }
 
-void CScene::update()
+void CScene::Update()
 {
 	for (UINT i = 0; i < (UINT)GROUP_TYPE::END; ++i)
 	{
@@ -25,24 +25,24 @@ void CScene::update()
 		{
 			if (!m_arrObj[i][j]->IsDead())
 			{
-				m_arrObj[i][j]->update();
+				m_arrObj[i][j]->Update();
 			}
 		}
 	}
 }
 
-void CScene::finalupdate()
+void CScene::FinalUpdate()
 {
 	for (UINT i = 0; i < (UINT)GROUP_TYPE::END; ++i)
 	{
 		for (size_t j = 0; j < m_arrObj[i].size(); ++j)
 		{
-			m_arrObj[i][j]->finalupdate();
+			m_arrObj[i][j]->FinalUpdate();
 		}
 	}
 }
 
-void CScene::render(HDC _dc)
+void CScene::Render(HDC _dc)
 {
 	for (UINT i = 0; i < (UINT)GROUP_TYPE::END; ++i)
 	{
@@ -52,7 +52,7 @@ void CScene::render(HDC _dc)
 		{
 			if (!(*iter)->IsDead())
 			{
-				(*iter)->render(_dc);
+				(*iter)->Render(_dc);
 				++iter;
 			}
 			else

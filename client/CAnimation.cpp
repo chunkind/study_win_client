@@ -20,7 +20,7 @@ CAnimation::~CAnimation()
 
 }
 
-void CAnimation::update()
+void CAnimation::Update()
 {
 	if (m_bFinish)
 		return;
@@ -43,7 +43,7 @@ void CAnimation::update()
 	}
 }
 
-void CAnimation::render(HDC _dc)
+void CAnimation::Render(HDC _dc)
 {
 	if (m_bFinish)
 		return;

@@ -15,11 +15,11 @@ CAnimator::~CAnimator()
 	Safe_Delete_Map(m_mapAnim);
 }
 
-void CAnimator::update()
+void CAnimator::Update()
 {
 	if (nullptr != m_pCurAnim)
 	{
-		m_pCurAnim->update();
+		m_pCurAnim->Update();
 
 		if (m_bRepeat && m_pCurAnim->IsFinish())
 		{
@@ -28,10 +28,10 @@ void CAnimator::update()
 	}
 }
 
-void CAnimator::render(HDC _dc)
+void CAnimator::Render(HDC _dc)
 {
 	if (nullptr != m_pCurAnim)
-		m_pCurAnim->render(_dc);
+		m_pCurAnim->Render(_dc);
 }
 
 void CAnimator::CreateAnimation(const wstring& _strName, CTexture* _pTex, Vec2 _vLT, Vec2 _vSliceSize, Vec2 _vStep, float _fDuration, UINT _iFrameCount)

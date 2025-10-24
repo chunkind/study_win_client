@@ -27,7 +27,7 @@ CCollider::~CCollider()
 {
 }
 
-void CCollider::finalupdate()
+void CCollider::FinalUpdate()
 {
 	Vec2 vObjectPos = m_pOwner->GetPos();
 	m_vFinalPos = vObjectPos + m_vOffsetPos;
@@ -35,7 +35,7 @@ void CCollider::finalupdate()
 	assert(0 <= m_iCol);
 }
 
-void CCollider::render(HDC _dc)
+void CCollider::Render(HDC _dc)
 {
 	PEN_TYPE ePen = PEN_TYPE::GREEN;
 

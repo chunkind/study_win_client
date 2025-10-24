@@ -19,7 +19,7 @@ CCamera::~CCamera()
 
 }
 
-void CCamera::update()
+void CCamera::Update()
 {
 	if (m_pTargetObj)
 	{

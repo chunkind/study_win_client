@@ -9,8 +9,8 @@ class CPlayer : public CObject
 private:
 
 public:
-    virtual void update();
-    virtual void render(HDC _dc);
+    virtual void Update();
+    virtual void Render(HDC _dc);
 
 private:
     void CreateMissile();

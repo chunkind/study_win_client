@@ -18,7 +18,7 @@ CMonster::~CMonster()
 {
 }
 
-void CMonster::update()
+void CMonster::Update()
 {
 	Vec2 vCurPos = GetPos();
 

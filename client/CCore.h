@@ -17,8 +17,8 @@ private:
 	HPEN		m_arrPen[(UINT)PEN_TYPE::END];
 
 public:
-	int init(HWND _hWnd, POINT _ptResolution);
-	void progress();
+	int Init(HWND _hWnd, POINT _ptResolution);
+	void Progress();
 
 private:
 	void CreateBrushPen();
