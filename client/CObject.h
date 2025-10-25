@@ -44,7 +44,7 @@ private:
 
 public:
 	virtual void Update() = 0;
-	virtual void FinalUpdate() final;
+	virtual void FinalUpdate();
 	virtual void Render(HDC _dc);
 	void ComponentRender(HDC _Dc);
 

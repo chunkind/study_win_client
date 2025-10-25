@@ -22,9 +22,18 @@ void CScene_Tool::Enter()
 
 	Vec2 vResolution = CCore::GetInst()->GetResolution();
 
-	CUI* pUI = new CUI;
+	CUI* pUI = new CUI(false);
+	pUI->SetName(L"부모UI");
 	pUI->SetScale(Vec2(100.f, 100.f));
 	pUI->SetPos(Vec2(vResolution.x - pUI->GetScale().x, 0.f));
+
+	/*CUI* pChildUI = new CUI();
+	pChildUI->SetName(L"자식UI");
+	pChildUI->SetScale(Vec2(100.f, 40.f));
+	pChildUI->SetPos(Vec2(0.f, 0.f));
+
+	pUI->AddChild(pChildUI);*/
+
 	AddObject(pUI, GROUP_TYPE::UI);
 
 	CCamera::GetInst()->SetLookAt(vResolution / 2.f);

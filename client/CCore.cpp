@@ -8,6 +8,7 @@
 #include "CCollisionMgr.h"
 #include "CEventMgr.h"
 #include "CCamera.h"
+#include "CUIMgr.h"
 
 CCore::CCore()
 	: m_hWnd(0)
@@ -68,6 +69,7 @@ void CCore::Progress()
 	CCamera::GetInst()->Update();
 	CSceneMgr::GetInst()->Update();
 	CCollisionMgr::GetInst()->Update();
+	CUIMgr::GetInst()->Update();
 
 	Rectangle(m_memDC, -1, -1, m_ptResolution.x + 1, m_ptResolution.y + 1);
 	CSceneMgr::GetInst()->Render(m_memDC);
