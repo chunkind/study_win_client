@@ -1,6 +1,7 @@
 #include "CPanelUI.h"
 
 CPanelUI::CPanelUI()
+	: CUI(false)
 {
 }
 

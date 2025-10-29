@@ -53,7 +53,12 @@ CUI* CUIMgr::GetTargetedUI(CUI* _pParentUI)
 	bool bLbtnAway = KEY_AWAY(KEY::LBTN);
 
 	CUI* pTargetUI = nullptr;
-	list<CUI*> queue;
+
+	static list<CUI*> queue;
+	static vector<CUI*> vecNoneTarget;
+
+	queue.clear();
+	vecNoneTarget.clear();
 
 	queue.push_back(_pParentUI);
 
@@ -64,20 +69,30 @@ CUI* CUIMgr::GetTargetedUI(CUI* _pParentUI)
 
 		if (pUI->IsMouseOn())
 		{
+			if (nullptr != pTargetUI)
+			{
+				vecNoneTarget.push_back(pTargetUI);
+			}
+
 			pTargetUI = pUI;
 		}
 		else
 		{
-			if (bLbtnAway)
-			{
-				pUI->m_bLbtnDown = false;
-			}
+			vecNoneTarget.push_back(pUI);
 		}
 
 		const vector<CUI*>& vecChild = pUI->GetChildUI();
 		for (size_t i = 0; i < vecChild.size(); ++i)
 		{
 			queue.push_back(vecChild[i]);
+		}
+	}
+
+	if (bLbtnAway)
+	{
+		for (size_t i = 0; i < vecNoneTarget.size(); ++i)
+		{
+			vecNoneTarget[i]->m_bLbtnDown = false;
 		}
 	}
 

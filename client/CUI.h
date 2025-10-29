@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CObject.h"
+#include "SelectGDI.h"
 
 class CUI : public CObject
 {
